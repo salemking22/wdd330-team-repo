@@ -1,5 +1,7 @@
 # sleepoutside
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b4b38af3-7cb8-45cf-97b2-1e4ba01a0f14/deploy-status)](https://app.netlify.com/sites/incandescent-nasturtium-1951a6/deploys)
+
 ## Description
 
 Use this as a starting point to complete the WDD 330 team activity: the SleepOutside web application. It scaffolds out a simple web app with Vite support to bundle up our assets.
