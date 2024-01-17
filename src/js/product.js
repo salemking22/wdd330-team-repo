@@ -20,7 +20,7 @@ function addProductToCart(product) {
         //If product is already in cart
         previousCart[i].quantity++; //Increment quantity
         previousCart[i].FinalPrice =
-          previousCart[i].quantity * previousCart[i].ListPrice; //Update price
+        (previousCart[i].quantity * previousCart[i].ListPrice).toFixed(2); //Update price
         //Set cart items to previous cart
         setLocalStorage("so-cart", previousCart); //Set local storage to cart items
         return; //Exit function
