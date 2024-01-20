@@ -65,6 +65,8 @@ export default class ProductDetails {
           }
           cartItems = previousCart; //Set cart items to previous cart
           cartItems.push(product); //Push product to cart items
+          cartTotal = cartTotal + product.ListPrice; //Update cart total
+          setLocalStorage("so-cart-total", cartTotal); //Set local storage to cart total
           setLocalStorage("so-cart", cartItems); //Set local storage to cart items
         } else {
           cartItems.push(product); //Push product to cart items
