@@ -2,11 +2,13 @@ import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
+  const cartTotal = getLocalStorage("so-cart-total");
   if (!cartItems) {
     return;
   }
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelector(".cart-total").innerHTML = "Total $" + cartTotal;
 }
 
 function cartItemTemplate(item) {

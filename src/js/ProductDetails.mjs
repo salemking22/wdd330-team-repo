@@ -36,6 +36,10 @@ export default class ProductDetails {
     addProductToCart() {
         let product = this.product; //Get product
         let previousCart = JSON.parse(localStorage.getItem("so-cart")); //Get cart from local storage
+        let cartTotal = parseFloat(localStorage.getItem("so-cart-total")); //Get cart total from local storage
+        if (!cartTotal) {
+          cartTotal = 0;
+        }
         if (!previousCart) {
           //If cart is empty
           previousCart = [];
@@ -53,6 +57,8 @@ export default class ProductDetails {
               previousCart[i].FinalPrice =
                 (previousCart[i].quantity * previousCart[i].ListPrice).toFixed(2); //Update price
               //Set cart items to previous cart
+              cartTotal = cartTotal + previousCart[i].ListPrice; //Update cart total
+              setLocalStorage("so-cart-total", cartTotal); //Set local storage to cart total
               setLocalStorage("so-cart", previousCart); //Set local storage to cart items
               return; //Exit function
             }
@@ -62,6 +68,8 @@ export default class ProductDetails {
           setLocalStorage("so-cart", cartItems); //Set local storage to cart items
         } else {
           cartItems.push(product); //Push product to cart items
+          cartTotal = cartTotal + product.ListPrice; //Update cart total
+          setLocalStorage("so-cart-total", cartTotal); //Set local storage to cart total
           setLocalStorage("so-cart", cartItems); //Set local storage to cart items
         }
       }
