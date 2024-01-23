@@ -34,3 +34,25 @@ export function renderListWithTemplate(templateFn, parentElement, data, position
   const list = data.map((item) => templateFn(item));
   parentElement.insertAdjacentHTML(position, list.join(""));
 }
+
+async function renderWithTemplate(element, data, position = "afterBegin") {
+//Render the template using just javascript with no libraries
+  console.log(data);
+  element.innerHTML = data; 
+}
+
+export async function loadHeaderFooter() {
+  const header = qs("header");
+  const footer = qs("footer");
+  const headerTemplate = await loadTemplate("../partials/header.html");
+  const footerTemplate =  await loadTemplate("../partials/footer.html");
+  renderWithTemplate(header, headerTemplate);
+  renderWithTemplate(footer, footerTemplate);
+  
+}
+
+export async function loadTemplate(path) {
+  const res = await fetch(path);
+  const template = await res.text();
+  return template;
+}
