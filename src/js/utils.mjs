@@ -26,3 +26,11 @@ export function getParams() {
   const params = new URLSearchParams(window.location.search);
   return params.get("product");
 }
+
+export function renderListWithTemplate(templateFn, parentElement, data, position = "afterBegin",clear = false) {
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  const list = data.map((item) => templateFn(item));
+  parentElement.insertAdjacentHTML(position, list.join(""));
+}

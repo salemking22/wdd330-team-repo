@@ -202,6 +202,14 @@ button {
   grid-column: 3;
 }
 
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  font-size: var(--large-font);
+  font-weight: bold;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
