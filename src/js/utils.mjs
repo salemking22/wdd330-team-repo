@@ -22,9 +22,9 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function getParams() {
+export function getParams(lookup) {
   const params = new URLSearchParams(window.location.search);
-  return params.get("product");
+  return params.get(lookup);
 }
 
 export function renderListWithTemplate(templateFn, parentElement, data, position = "afterBegin",clear = false) {
@@ -37,7 +37,6 @@ export function renderListWithTemplate(templateFn, parentElement, data, position
 
 async function renderWithTemplate(element, data, position = "afterBegin") {
 //Render the template using just javascript with no libraries
-  console.log(data);
   element.innerHTML = data; 
 }
 
@@ -46,9 +45,19 @@ export async function loadHeaderFooter() {
   const footer = qs("footer");
   const headerTemplate = await loadTemplate("../partials/header.html");
   const footerTemplate =  await loadTemplate("../partials/footer.html");
+  //Load Cart Item Count
+ 
+  //Render Header and Footer
   renderWithTemplate(header, headerTemplate);
   renderWithTemplate(footer, footerTemplate);
-  
+  const cart = getLocalStorage("so-cart");
+  let cartCount = 0;
+  if (cart) {
+    for (let i = 0; i < cart.length; i++) {
+      cartCount += cart[i].quantity;
+    }
+  }
+  qs(".cart-count").innerHTML = cartCount;
 }
 
 export async function loadTemplate(path) {
