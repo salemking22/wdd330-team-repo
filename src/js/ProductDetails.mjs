@@ -6,7 +6,7 @@ function productTemplate(product) {
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
       class="divider"
-      src="${product.Image}"
+      src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${product.FinalPrice}</p>
@@ -27,6 +27,7 @@ export default class ProductDetails {
 
     async init() {
         this.product = await this.dataSource.findProductById(this.productID);
+        console.log(this.product);
         this.render("main");
         document
             .getElementById("addToCart")
@@ -60,6 +61,9 @@ export default class ProductDetails {
               cartTotal = cartTotal + previousCart[i].ListPrice; //Update cart total
               setLocalStorage("so-cart-total", cartTotal); //Set local storage to cart total
               setLocalStorage("so-cart", previousCart); //Set local storage to cart items
+              let cartCount  = parseInt(document.querySelector(".cart-count").innerHTML); //Get cart count
+              cartCount = cartCount + 1; //Update cart count
+              document.querySelector(".cart-count").innerHTML = parseInt(cartCount); //Set cart count
               return; //Exit function
             }
           }
@@ -74,6 +78,10 @@ export default class ProductDetails {
           setLocalStorage("so-cart-total", cartTotal); //Set local storage to cart total
           setLocalStorage("so-cart", cartItems); //Set local storage to cart items
         }
+       //Set cart count
+        let cartCount  = parseInt(document.querySelector(".cart-count").innerHTML); //Get cart count
+        cartCount = cartCount + 1; //Update cart count
+        document.querySelector(".cart-count").innerHTML = parseInt(cartCount); //Set cart count
       }
       // add to cart button event handler
 
