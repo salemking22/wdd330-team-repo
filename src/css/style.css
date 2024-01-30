@@ -281,14 +281,13 @@ footer {
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  
 }
 
 .cart-buttons a:hover {
   background-color: var(--primary-color);
 }
 
-.checkout{
+.checkout {
   display: flex;
   justify-content: space-between;
   padding: 0.5em;
@@ -308,6 +307,22 @@ footer {
   width: 100%;
   padding: 0.5em;
   font-size: var(--small-font);
+}
+
+/* Hide Number Icons input */
+.checkout-form input[type="number"] {
+  appearance: textfield;
+}
+
+/* Valid and Invalid */
+.checkout-form input:valid {
+  border: 1px solid green;
+  background-color: #8aff7b;
+}
+
+.checkout-form input:invalid {
+  border: 1px solid red;
+  background-color: #ff9d98;
 }
 
 .checkout-form button {
@@ -337,7 +352,7 @@ footer {
   padding: 0.5em;
   border: #303030 1px solid;
 }
-.cart-total-sum .shipping .tax .item-count{
+.cart-total-sum .shipping .tax .item-count {
   padding: 0.5em;
   font-size: var(--small-font-font);
   font-weight: lighter;
@@ -350,9 +365,3 @@ footer {
   font-size: var(--large-font);
   font-weight: bolder;
 }
-
-
-
-
-
-

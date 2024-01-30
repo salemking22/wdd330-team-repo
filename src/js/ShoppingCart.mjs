@@ -22,6 +22,12 @@ export default class ShoppingCart {
     constructor() {
         this.cartItems = getLocalStorage("so-cart");
         this.cartTotal = getLocalStorage("so-cart-total");
+        if (!this.cartItems) {
+            this.cartItems = [];
+        }
+        if (!this.cartTotal) {
+            this.cartTotal = 0;
+        }
         this.element = document.querySelector(".product-list");
         this.render();
     }
