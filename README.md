@@ -1,6 +1,6 @@
 # sleepoutside
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b4b38af3-7cb8-45cf-97b2-1e4ba01a0f14/deploy-status)](https://app.netlify.com/sites/incandescent-nasturtium-1951a6/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b4b38af3-7cb8-45cf-97b2-1e4ba01a0f14/deploy-status)](https://main--beamish-syrniki-1bcaf9.netlify.app/)
 
 ## Description
 
