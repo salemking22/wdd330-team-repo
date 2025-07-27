@@ -9,19 +9,20 @@ function convertToJson(res) {
 }
 
 export default class ExternalServices {
-  constructor() {
-
+  constructor(category) {
+    this.category = category;
   }
- async getData(category) {
-    const resp = await fetch(`${baseURL}/products/search/${category}`)
+
+  async getData() {
+    const resp = await fetch(`${baseURL}/products/search/${this.category}`);
     const json = await resp.json();
     return json.Result;
- }
+  }
+
   async findProductById(id) {
-    const resp = await fetch(`${baseURL}/product/${id}`)
+    const resp = await fetch(`${baseURL}/product/${id}`);
     const json = await resp.json();
     return json.Result;
-    
   }
 
   async checkout(orderPackage) {
