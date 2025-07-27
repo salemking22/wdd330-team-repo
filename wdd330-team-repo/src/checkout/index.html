@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sleep Outside | Checkout</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/main.js" type="module"></script>
+    <script src="../js/cart.js" type="module"></script>
+    <script src="../js/checkout.js" type="module"></script>
+  </head>
+
+  <body>
+    <header class="divider"></header>
+
+    <main class="divider">
+      <section class="products">
+        <h2>Review & Place your Order</h2>
+        <ul class="product-list"></ul>
+        <p class="cart-total"></p>
+      </section>
+      <section class="checkout">
+        <form
+          class="checkout-form"
+          action="https://httpbin.org/post"
+          method="POST"
+        >
+          <h2>Shipping Address</h2>
+          <label for="name">Name</label>
+          <input type="text" name="firstName" id="firstName" required />
+          <label for="lastName">Last Name</label>
+          <input type="text" name="lastName" id="lastName" required />
+          <label for="address">Address</label>
+          <input type="text" name="address" id="address" required />
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" required />
+          <label for="state">State</label>
+          <input type="text" name="state" id="state" required />
+          <label for="zip">Zip</label>
+          <input type="text" name="zip" id="zip" required />
+          <label for="card">Credit Card</label>
+          <input type="number" name="card" id="card" required />
+          <label for="exp">Expiration</label>
+          <input type="text" name="exp" id="exp" required />
+          <label for="cvv">CVV</label>
+          <input type="number" name="cvv" id="cvv" required />
+          <button type="submit" class="button">Place Order</button>
+        </form>
+        <ul class="checkout-summary">
+          <h2>Order Summary</h2>
+          <li class="item-count"></li>
+          <li class="cart-total-sum"></li>
+          <li class="shipping"></li>
+          <li class="tax"></li>
+          <li class="order-total"></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>&copy;NOT a real business</footer>
+  </body>
+</html>
