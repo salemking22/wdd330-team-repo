@@ -37,12 +37,19 @@ class ProductListing {
   async init() {
     try {
       const list = await this.dataSource.getData();
-      if (!list || list.length === 0) {
+
+      // 🧠 New: Filter products by category match
+      const filteredList = list.filter(product =>
+        product.category &&
+        product.category.toLowerCase().includes(this.category.toLowerCase())
+      );
+
+      if (!filteredList || filteredList.length === 0) {
         this.element.innerHTML = `<p>No products found in ${this.category}.</p>`;
         return;
       }
 
-      this.renderList(list);
+      this.renderList(filteredList);
     } catch (error) {
       console.error("🚨 Failed to load products:", error);
       this.element.innerHTML = `<p>Oops! Something went wrong while loading products.</p>`;
